@@ -356,7 +356,7 @@ namespace WindowsFormsApp1
 
             
             //使用準備的資料集合oplist動態生成label
-            int i = 20;
+            int i = 0;
             foreach (var item in this._oplist)
             {
                 this.panel1.Controls.Add(new Label()
