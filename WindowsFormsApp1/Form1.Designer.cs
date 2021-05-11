@@ -128,21 +128,21 @@ namespace WindowsFormsApp1
             // 
             // endDate
             // 
+            this.endDate.Checked = false;
             this.endDate.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.endDate.Location = new System.Drawing.Point(338, 25);
             this.endDate.Name = "endDate";
             this.endDate.Size = new System.Drawing.Size(186, 31);
             this.endDate.TabIndex = 3;
-            this.endDate.Value = new System.DateTime(2021, 12, 31, 0, 0, 0, 0);
             // 
             // startDate
             // 
+            this.startDate.Checked = false;
             this.startDate.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.startDate.Location = new System.Drawing.Point(68, 25);
             this.startDate.Name = "startDate";
             this.startDate.Size = new System.Drawing.Size(186, 31);
             this.startDate.TabIndex = 2;
-            this.startDate.Value = new System.DateTime(2021, 1, 1, 0, 0, 0, 0);
             // 
             // label6
             // 

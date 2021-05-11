@@ -253,7 +253,9 @@ namespace WindowsFormsApp1
         {
             this.panel1.Visible = false;
             this.radioButton1.Checked = true;
-            
+            DateTime now = DateTime.Now;
+            this.startDate.Value = new DateTime(now.Year, 1, 1);
+            this.endDate.Value = new DateTime(now.Year, 12, 31);
             foreach(var item in _carlist)
             {
                 this.CarTypecomboBox.Items.Add(item.Name);
@@ -335,7 +337,8 @@ namespace WindowsFormsApp1
             string ccVal = CCcomboBox.SelectedItem as string;
             if (string.IsNullOrEmpty(carVal) || string.IsNullOrEmpty(ccVal))
             {
-                return; //如果沒值直接return
+                MessageBox.Show("請輸入完整查詢資訊");
+                return;
             }
 
             //LINQ 找出carlist中的子集合cclist
@@ -372,8 +375,7 @@ namespace WindowsFormsApp1
             }
           
         }
-        #endregion
 
-        
+        #endregion
     }
 }
