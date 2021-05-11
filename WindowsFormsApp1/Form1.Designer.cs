@@ -45,7 +45,6 @@ namespace WindowsFormsApp1
             this.opbutton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -213,21 +212,11 @@ namespace WindowsFormsApp1
             this.textBox1.Size = new System.Drawing.Size(888, 18);
             this.textBox1.TabIndex = 0;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(142, 484);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 15);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "label7";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(888, 655);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.opbutton);
@@ -268,7 +257,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button opbutton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label7;
     }
 }
 
