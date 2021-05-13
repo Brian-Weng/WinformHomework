@@ -331,6 +331,14 @@ namespace WindowsFormsApp1
 
             DateTime sdate = this.startDate.Value;
             DateTime edate = this.endDate.Value;
+            if(sdate > edate)
+            {
+                DateTime temp = sdate;
+                sdate = edate;
+                edate = temp;
+                this.startDate.Value = sdate;
+                this.endDate.Value = edate;
+            }
             this.GetDaylist(sdate, edate);//Create oplist
 
             string carVal = CarTypecomboBox.SelectedItem as string;
