@@ -45,6 +45,12 @@ namespace WindowsFormsApp1
             this.opbutton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +58,7 @@ namespace WindowsFormsApp1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(95, 59);
+            this.label1.Location = new System.Drawing.Point(34, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 20);
             this.label1.TabIndex = 0;
@@ -62,7 +68,7 @@ namespace WindowsFormsApp1
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(95, 182);
+            this.label2.Location = new System.Drawing.Point(34, 177);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 20);
             this.label2.TabIndex = 1;
@@ -72,7 +78,7 @@ namespace WindowsFormsApp1
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(95, 266);
+            this.label3.Location = new System.Drawing.Point(34, 261);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(180, 20);
             this.label3.TabIndex = 2;
@@ -82,7 +88,7 @@ namespace WindowsFormsApp1
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(95, 397);
+            this.label4.Location = new System.Drawing.Point(34, 392);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 20);
             this.label4.TabIndex = 3;
@@ -92,7 +98,7 @@ namespace WindowsFormsApp1
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.radioButton1.Location = new System.Drawing.Point(306, 37);
+            this.radioButton1.Location = new System.Drawing.Point(245, 32);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(90, 24);
             this.radioButton1.TabIndex = 4;
@@ -105,7 +111,7 @@ namespace WindowsFormsApp1
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.radioButton2.Location = new System.Drawing.Point(482, 37);
+            this.radioButton2.Location = new System.Drawing.Point(421, 32);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(90, 24);
             this.radioButton2.TabIndex = 5;
@@ -119,7 +125,7 @@ namespace WindowsFormsApp1
             this.groupBox1.Controls.Add(this.startDate);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(282, 67);
+            this.groupBox1.Location = new System.Drawing.Point(221, 62);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(530, 76);
             this.groupBox1.TabIndex = 6;
@@ -167,7 +173,7 @@ namespace WindowsFormsApp1
             // 
             this.CarTypecomboBox.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.CarTypecomboBox.FormattingEnabled = true;
-            this.CarTypecomboBox.Location = new System.Drawing.Point(306, 182);
+            this.CarTypecomboBox.Location = new System.Drawing.Point(245, 177);
             this.CarTypecomboBox.Name = "CarTypecomboBox";
             this.CarTypecomboBox.Size = new System.Drawing.Size(287, 28);
             this.CarTypecomboBox.TabIndex = 7;
@@ -177,7 +183,7 @@ namespace WindowsFormsApp1
             // 
             this.CCcomboBox.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.CCcomboBox.FormattingEnabled = true;
-            this.CCcomboBox.Location = new System.Drawing.Point(306, 262);
+            this.CCcomboBox.Location = new System.Drawing.Point(245, 257);
             this.CCcomboBox.Name = "CCcomboBox";
             this.CCcomboBox.Size = new System.Drawing.Size(287, 28);
             this.CCcomboBox.TabIndex = 8;
@@ -185,7 +191,7 @@ namespace WindowsFormsApp1
             // opbutton
             // 
             this.opbutton.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.opbutton.Location = new System.Drawing.Point(687, 182);
+            this.opbutton.Location = new System.Drawing.Point(626, 261);
             this.opbutton.Name = "opbutton";
             this.opbutton.Size = new System.Drawing.Size(151, 47);
             this.opbutton.TabIndex = 10;
@@ -197,9 +203,9 @@ namespace WindowsFormsApp1
             // 
             this.panel1.AutoScroll = true;
             this.panel1.AutoScrollMinSize = new System.Drawing.Size(430, 224);
-            this.panel1.Location = new System.Drawing.Point(306, 397);
+            this.panel1.Location = new System.Drawing.Point(245, 392);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(551, 224);
+            this.panel1.Size = new System.Drawing.Size(532, 178);
             this.panel1.TabIndex = 11;
             // 
             // textBox1
@@ -209,14 +215,63 @@ namespace WindowsFormsApp1
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(888, 18);
+            this.textBox1.Size = new System.Drawing.Size(1420, 18);
             this.textBox1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button1.Location = new System.Drawing.Point(626, 177);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(151, 47);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "條件視窗";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnSave.Location = new System.Drawing.Point(245, 576);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(90, 36);
+            this.btnSave.TabIndex = 13;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnOpen.Location = new System.Drawing.Point(341, 576);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(90, 36);
+            this.btnOpen.TabIndex = 14;
+            this.btnOpen.Text = "Open";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(862, 386);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(423, 184);
+            this.textBox2.TabIndex = 15;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 655);
+            this.ClientSize = new System.Drawing.Size(1420, 655);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.btnOpen);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.opbutton);
@@ -257,6 +312,12 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button opbutton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

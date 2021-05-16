@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,15 +10,13 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
-        public string car;
-        public string cc;
-        public Form1()
+        public Form1 Main = null;
+        public Form2()
         {
             InitializeComponent();
         }
-
 
         #region DataList
 
@@ -32,7 +29,7 @@ namespace WindowsFormsApp1
 
             public double Rate
             {
-                get { return  (double)(this.Days / this.totalDays); }
+                get { return (double)(this.Days / this.totalDays); }
             }
         }
 
@@ -249,32 +246,13 @@ namespace WindowsFormsApp1
         }
 
         #endregion
-
-        #region Event
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
-            this.panel1.Visible = false;
-            this.radioButton1.Checked = true;
-            DateTime now = DateTime.Now;
-            this.startDate.Value = new DateTime(now.Year, 1, 1);
-            this.endDate.Value = new DateTime(now.Year, 12, 31);
-            foreach(var item in _carlist)
+            foreach (var item in _carlist)
             {
                 this.CarTypecomboBox.Items.Add(item.Name);
             }
             this.CarTypecomboBox.SelectedIndex = 0;
-        }
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.radioButton1.Checked)
-            {
-                this.groupBox1.Visible = false;
-            }
-            else
-            {
-                this.groupBox1.Visible = true;
-            }
         }
 
         private void CarTypecomboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -284,7 +262,7 @@ namespace WindowsFormsApp1
             var query =
                 from n in _carlist
                 select n;
-                
+
             string car = CarTypecomboBox.SelectedItem as string;
             Car ecar = (Car)Enum.Parse(typeof(Car), car);
             switch (ecar)
@@ -323,141 +301,30 @@ namespace WindowsFormsApp1
                     break;
             }
             this.CCcomboBox.SelectedIndex = 0;
-
         }
 
+        public string carType
+        {
+            get { return this.CarTypecomboBox.SelectedItem.ToString(); }
+        }
+
+        public string ccType
+        {
+            get { return this.CCcomboBox.SelectedItem.ToString(); }
+        }
         private void opbutton_Click(object sender, EventArgs e)
         {
-            this.panel1.Visible = true;
-            this.panel1.Controls.Clear();
-            this._oplist.Clear();
-
-            DateTime sdate = this.startDate.Value;
-            DateTime edate = this.endDate.Value;
-            if(sdate > edate)
-            {
-                DateTime temp = sdate;
-                sdate = edate;
-                edate = temp;
-                this.startDate.Value = sdate;
-                this.endDate.Value = edate;
-            }
-            this.GetDaylist(sdate, edate);//Create oplist
-
-            //string carVal = CarTypecomboBox.SelectedItem as string;
-            //string ccVal = CCcomboBox.SelectedItem as string;
-            string form2CarVal = this.car;
-            string form2ccVal = this.cc;
-            if (string.IsNullOrEmpty(form2CarVal) || string.IsNullOrEmpty(form2ccVal))
-            {
-                MessageBox.Show("請輸入完整查詢資訊");
-                return;
-            }
-
-            //LINQ 找出carlist中的子集合cclist
-            var query =
-                (from d in this._carlist
-                 where d.Name == form2CarVal
-                 select d)
-                 .SelectMany(obj => obj.ccList);
-            //找出與輸入值相符合的Price稅價
-            var price = query
-                .Where(n => n.ccName == form2ccVal)
-                .FirstOrDefault();
-            //宣告變數放Price
-            double Price = price.Price;
-
+            this.Main.car = this.carType;
+            this.Main.cc = this.ccType;
             
-            //使用準備的資料集合oplist動態生成label
-            int i = 0;
-            foreach (var item in this._oplist)
-            {
-                this.panel1.Controls.Add(new Label()
-                {
-                    //Text =$"使用期間: {item.Start} ~ {item.End}"+ Environment.NewLine +
-                    //       $"計算天數: {item.Days} 天" + Environment.NewLine +
-                    //       $"汽缸CC數:{this.CCcomboBox.SelectedItem.ToString()}" + Environment.NewLine +
-                    //       $"用途: {this.CarTypecomboBox.SelectedItem.ToString()}" + Environment.NewLine +
-                    //       $"計算公式: {Price} * {item.Days} / {item.totalDays} = {Price * item.Rate : 0} 元" + Environment.NewLine +
-                    //       $"應納稅額: 共 {Price * item.Rate : 0} 元",
-                    Text = $"使用期間: {item.Start} ~ {item.End}" + Environment.NewLine +
-                           $"計算天數: {item.Days} 天" + Environment.NewLine +
-                           $"汽缸CC數:{this.cc}" + Environment.NewLine +
-                           $"用途: {this.car}" + Environment.NewLine +
-                           $"計算公式: {Price} * {item.Days} / {item.totalDays} = {Price * item.Rate: 0} 元" + Environment.NewLine +
-                           $"應納稅額: 共 {Price * item.Rate: 0} 元",
-                    Font = new Font("新細明體", 12, FontStyle.Regular),
-                    AutoSize = true,//讓label能依照字數量變大小
-                    Top = i//設定位置,沒設定會重疊變成看起來像是只有跑一筆
-                });
-                i += 110;
-                
-            }
-          
+            this.Hide();
         }
-
-        #endregion
-        private class Output
-        {
-            public string startDate { get; set; }
-            public string endDate { get; set; }
-            public string Car { get; set; }
-            public string CC { get; set; }
-
-            public List<string> saveList { get; set; }
-        }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 frm = new Form2();
-            frm.Main = this;
-            frm.ShowDialog();
+            this.Close();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            string sd = this.startDate.Value.ToString();
-            string ed = this.endDate.Value.ToString();
-
-            this.saveFileDialog1.InitialDirectory = "D:\\Logs\\";
-
-            if (this.saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string filePath = this.saveFileDialog1.FileName;
-
-                List<string> List = new List<string>();
-                foreach (Control lbl in this.panel1.Controls)
-                {
-                    List.Add(lbl.Text);
-                }
-
-                List<Output> saveList = new List<Output>()
-                {
-                    new Output(){ startDate = sd, endDate = ed, Car = this.car, CC = this.cc, saveList = List}
-                };
-
-                string content = JsonConvert.SerializeObject(saveList);
-
-                System.IO.File.WriteAllText(filePath, content);
-            }
-        }
-
-        private void btnOpen_Click(object sender, EventArgs e)
-        {
-            this.openFileDialog1.InitialDirectory = "D:\\Logs\\";
-
-            if (this.openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string filePath = this.openFileDialog1.FileName;
-                string content = System.IO.File.ReadAllText(filePath);
-                this.textBox2.Text = content;
-            }
-        }
-
-
+        
     }
 }
-
-
-
